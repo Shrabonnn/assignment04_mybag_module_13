@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   int a= 51 , b=30 , c=43;
+  int i=1, j=1, k=1;
 
   @override
   Widget build(BuildContext context) {
@@ -86,14 +87,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       CircleAvatar(child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            i= i-1;
+                                            if(i==0){
+                                              i=1;
+                                            }
+                                            setState(() {
+
+                                            });
+                                          },
                                           icon: Icon(Icons.remove))),
                                       SizedBox(width: 30,),
                                       Text(
-                                        "1", style: TextStyle(fontSize: 20),),
+                                        "${i}", style: TextStyle(fontSize: 20),),
                                       SizedBox(width: 30,),
                                       CircleAvatar(child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            i=i+1;
+                                            setState(() {
+
+                                            });
+                                          },
                                           icon: Icon(Icons.add))),
                                       SizedBox(width: 10,),
 
@@ -119,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     iconSize: 35,
                                   ),
                                   SizedBox(height: 35,),
-                                  Text("${a}\$", style: TextStyle(
+                                  Text("${a*i}\$", style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),),
 
@@ -163,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Row(
                                     children: [
-                                      Text("Pullover", style: TextStyle(
+                                      Text("Short Dress", style: TextStyle(
                                           fontSize: 30,
                                           fontWeight: FontWeight.bold),)
                                     ],
@@ -172,9 +186,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     children: [
                                       Text("Color: ", style: TextStyle(
                                           fontSize: 20, color: Colors.grey)),
-                                      Text("Gray",
+                                      Text("White",
                                         style: TextStyle(fontSize: 20),),
-                                      SizedBox(width: 15,),
+                                      SizedBox(width: 5,),
                                       Text("Size: ", style: TextStyle(
                                           fontSize: 20, color: Colors.grey)),
                                       Text(
@@ -188,14 +202,32 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       CircleAvatar(child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+
+
+                                            j=j-1;
+                                            if(j==0){
+                                              j=1;
+                                            }
+
+                                            setState(() {
+
+                                            });
+                                          },
                                           icon: Icon(Icons.remove))),
                                       SizedBox(width: 30,),
                                       Text(
-                                        "1", style: TextStyle(fontSize: 20),),
+                                        "${j}", style: TextStyle(fontSize: 20),),
                                       SizedBox(width: 30,),
                                       CircleAvatar(child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+
+                                            j=j+1;
+
+                                            setState(() {
+
+                                            });
+                                          },
                                           icon: Icon(Icons.add))),
                                       SizedBox(width: 10,),
 
@@ -221,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     iconSize: 35,
                                   ),
                                   SizedBox(height: 35,),
-                                  Text("${b}\$", style: TextStyle(
+                                  Text("${b*j}\$", style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),),
 
@@ -265,7 +297,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Row(
                                     children: [
-                                      Text("Pullover", style: TextStyle(
+                                      Text("T-shirt", style: TextStyle(
                                           fontSize: 30,
                                           fontWeight: FontWeight.bold),)
                                     ],
@@ -290,14 +322,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       CircleAvatar(child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            k=k-1;
+                                            if(k==0){
+                                              k=1;
+                                            }
+                                            setState(() {
+
+                                            });
+                                          },
                                           icon: Icon(Icons.remove))),
                                       SizedBox(width: 30,),
                                       Text(
-                                        "1", style: TextStyle(fontSize: 20),),
+                                        "${k}", style: TextStyle(fontSize: 20),),
                                       SizedBox(width: 30,),
                                       CircleAvatar(child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            k=k+1;
+                                            setState(() {
+
+                                            });
+                                          },
                                           icon: Icon(Icons.add))),
                                       SizedBox(width: 10,),
 
@@ -323,7 +368,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     iconSize: 35,
                                   ),
                                   SizedBox(height: 35,),
-                                  Text("${c}\$", style: TextStyle(
+                                  Text("${c*k}\$", style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),),
 
@@ -336,9 +381,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     }
                     else
-                      {
-                        return Divider();
-                      }
+                    {
+                      return Divider();
+                    }
 
                   },
                   separatorBuilder: (contex ,index){
@@ -356,7 +401,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text("Total amount: ",style: TextStyle(fontSize: 18,color: Colors.grey[200]),),
                 SizedBox(width: 240,),
-                Text("${a+b+c}\$",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                Text("${(a*i)+(b*j)+(c*k)}\$",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
               ],
             ),
 
@@ -365,16 +410,16 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               width: double.infinity,
               child: TextButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Congratulations! You have checked out.'),
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Congratulations! You have checked out.'),
 
-                    ),
-                  );
-                },
-                child: Text('CHECK OUT',style: TextStyle(color: Colors.white),),
-                style: TextButton.styleFrom(backgroundColor: Colors.red)
+                      ),
+                    );
+                  },
+                  child: Text('CHECK OUT',style: TextStyle(color: Colors.white),),
+                  style: TextButton.styleFrom(backgroundColor: Colors.red)
 
               ),
             )
